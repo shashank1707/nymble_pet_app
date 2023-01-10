@@ -1,16 +1,21 @@
 # nymble_pet_app
 
-A new Flutter project.
+This project contains a total of 6 screens.
+- Splash screen
+- Onboarding screen
+- Home screen
+- Favourites screen
+- History screen
+- Details screen
 
-## Getting Started
+The onboarding screen gives a brief introduction of the app.
+The Home screen contains a list of pets which can be tapped to open the details screen.
+The details screen screen has the information of the pet like name, age, sex, and price; and a button to adopt the pet followed by a beautiful greeting.
+one can also add pets as favourite and check it out on the favourites screen.
+The history screen contains a list of adopted pets.
 
-This project is a starting point for a Flutter application.
+The whole project is made from scratch.
+Bloc pattern is used.
+Lottie animations are used.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The apk file is available in the github repository itself "app-release.apk".
