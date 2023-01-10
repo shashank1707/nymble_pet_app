@@ -19,3 +19,4 @@ Bloc pattern is used.
 Lottie animations are used.
 
 The apk file is available in the github repository itself "app-release.apk".
+The app supports both light and dark modes depending on the device settings.
