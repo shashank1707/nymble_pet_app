@@ -24,11 +24,7 @@ class _SplashState extends State<Splash> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => BlocProvider(
-                      create: (context) =>
-                          PetBloc()..add(PetLoadingFromDataEvent()),
-                      child: const Home(),
-                    )));
+                builder: (context) => const Home()));
       } else {
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const Onboarding()));

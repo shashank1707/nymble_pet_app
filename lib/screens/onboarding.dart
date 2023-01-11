@@ -61,11 +61,7 @@ class Onboarding extends StatelessWidget {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => BlocProvider(
-                                  create: (context) =>
-                                      PetBloc()..add(PetLoadingFromDataEvent()),
-                                  child: const Home(),
-                                )));
+                            builder: (context) => const Home()));
                   })
             ],
           ),

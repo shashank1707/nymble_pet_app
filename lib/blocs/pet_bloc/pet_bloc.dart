@@ -30,8 +30,11 @@ class PetBloc extends Bloc<PetEvent, PetState> {
       emit(PetLoadingState());
       final hiveServices = HiveServices();
       List<int> adoptedList = hiveServices.getAdoptedList();
-      List<Map<dynamic, dynamic>> pets =
-          petList.where((e) => adoptedList.contains(e['id'])).toList();
+      List<Map<dynamic, dynamic>> pets = [];
+      for(int id in adoptedList) {
+        final pet = petList.where((element) => element['id'] == id).toList()[0];
+        pets.add(pet);
+      }
       emit(PetLoadedState(pets: pets));
     });
 
@@ -39,8 +42,11 @@ class PetBloc extends Bloc<PetEvent, PetState> {
       emit(PetLoadingState());
       final hiveServices = HiveServices();
       List<int> favList = hiveServices.getFavList();
-      List<Map<dynamic, dynamic>> pets =
-          petList.where((e) => favList.contains(e['id'])).toList();
+      List<Map<dynamic, dynamic>> pets = [];
+      for(int id in favList) {
+        final pet = petList.where((element) => element['id'] == id).toList()[0];
+        pets.add(pet);
+      }
       emit(PetLoadedState(pets: pets));
     });
   }

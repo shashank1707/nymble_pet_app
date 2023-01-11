@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:lottie/lottie.dart';
 import 'package:nymble_pet_app/blocs/adopt_button_bloc/adopt_button_bloc.dart';
 import 'package:nymble_pet_app/blocs/fav_button_bloc/fav_button_bloc.dart';
 import 'package:nymble_pet_app/blocs/pet_bloc/pet_bloc.dart';
 import 'package:nymble_pet_app/components/dancing_cat.dart';
+import 'package:nymble_pet_app/components/loading.dart';
+import 'package:nymble_pet_app/components/no_results.dart';
 import 'package:nymble_pet_app/components/pet_card.dart';
 
 class AdoptedPets extends StatelessWidget {
@@ -38,29 +38,16 @@ class AdoptedPets extends StatelessWidget {
               child: BlocBuilder<PetBloc, PetState>(
                 builder: (context, state) {
                   if (state is PetLoadingState) {
-                    return loading(context);
+                    return const Loading();
                   }
 
                   if (state is PetLoadedState) {
                     return state.pets.isNotEmpty
                         ? petList(state, size)
-                        : Center(
-                            child: Column(
-                              children: [
-                                Lottie.asset(
-                                    'assets/images/lottie_laptop_cat.json',
-                                    height: size.width,
-                                    width: size.width),
-                                const Text(
-                                  'No results Found!',
-                                  style: TextStyle(fontWeight: FontWeight.w700),
-                                )
-                              ],
-                            ),
-                          );
+                        : NoResults(size: size);
                   }
 
-                  return loading(context);
+                  return const Loading();
                 },
               ),
             ),
@@ -70,12 +57,6 @@ class AdoptedPets extends StatelessWidget {
     );
   }
 
-  Center loading(BuildContext context) {
-    return Center(
-      child: LoadingAnimationWidget.twoRotatingArc(
-          color: Theme.of(context).primaryColor, size: 20),
-    );
-  }
 
   ListView petList(PetLoadedState state, Size size) {
     return ListView.builder(
