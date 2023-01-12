@@ -49,6 +49,7 @@ class Onboarding extends StatelessWidget {
                 ],
               ),
               CustomButton(
+                key: const Key('get started'),
                   title: 'Get Started',
                   width: size.width / 2,
                   height: size.width / 8,
